@@ -74,12 +74,12 @@
 }
 
 .link {
-    color: #C8C8C6;
     font-family: "Open Sans";
     font-size: 19.547px;
     font-style: normal;
     font-weight: 300;
     line-height: 16.615px; /* 85% */
+    user-select: none;
 }
 
 .social-decor {
@@ -91,6 +91,8 @@
     position: relative;
     top: 4.6px;
     left: 111.8;
+    opacity: 0;
+    transition: 0.4s;
 }
 
 .about-decor {
@@ -99,9 +101,11 @@
     height: 83px;
     flex-shrink: 0;
     z-index: 2;
-    position: relative;
+    position: absolute;
     top: 4.2px;
     left: 292.8;
+    opacity: 0;
+    transition: 0.4s;
 }
 
 .works-decor {
@@ -110,9 +114,12 @@
     height: 83px;
     flex-shrink: 0;
     z-index: 2;
-    position: relative;
-    top: 3.8px;
+    position: absolute;
+    border-radius: 16px;
+    top: 4.4px;
     left: 455.8;
+    opacity: 0;
+    transition: 0.4s;
 }
 
 .ideas-decor {
@@ -121,9 +128,11 @@
     height: 83px;
     flex-shrink: 0;
     z-index: 2;
-    position: relative;
+    position: absolute;
     top: 4.4px;
     left: 605.8;
+    opacity: 0;
+    transition: 0.4s;
 }
 
 .achievements-decor {
@@ -132,7 +141,29 @@
     height: 83px;
     flex-shrink: 0;
     z-index: 2;
-    position: relative;
-    top: 1px;
+    position: absolute;
+    top: 4.4px;
     left: 769.8;
+    opacity: 0;
+    transition: 0.4s;
 }
+
+.menu:has(#social:hover) #social-decor {
+    opacity: 1;
+  }
+
+.menu:has(#about:hover) #about-decor {
+    opacity: 1;
+  }
+
+.menu:has(#works:hover) #works-decor {
+    opacity: 1;
+  }
+
+.menu:has(#ideas:hover) #ideas-decor {
+    opacity: 1;
+  }
+
+.menu:has(#achievements:hover) #achievements-decor {
+    opacity: 1;
+  }
