@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 export default function MainPageThemeLoader() {
   useEffect(() => {
     // Генерируем случайное число от 1 до 6
-    const randTheme = Math.floor(Math.random() * (6 - 1 + 1) + 1);
+    const randTheme = Math.floor(Math.random() * (16 - 1 + 1) + 1);
     
     // Загружаем тему динамически
     const themeLink = document.createElement('link');

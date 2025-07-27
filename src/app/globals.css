@@ -72,3 +72,12 @@ a {
     color-scheme: dark;
   }
 }
+
+.fadeComponent {
+  background-color: #0070f3;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease; /* Плавный переход */
+}

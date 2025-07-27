@@ -54,7 +54,6 @@ export default function Welcome() {
               alignSelf: 'stretch'
               }}>
                 <MobileMenu primary='var(--primary)' secondary='var(--secondary)'/>
-                <h1 style={{ color: 'var(--secondary)' }}>Mobile randomized</h1>
               </div>
         </div>
       ) : (
@@ -75,8 +74,6 @@ export default function Welcome() {
               }}>
               <Label secondary='var(--secondary)'/>
               <Menu primary='var(--primary)' secondary='var(--secondary)'/>
-              <h1 style={{ color: 'var(--secondary)' }}>Страница со случайной темой</h1>
-              <p>При каждой загрузке тема будет меняться</p>
             </div>
         </div>
         )}
