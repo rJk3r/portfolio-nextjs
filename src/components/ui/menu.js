@@ -1,6 +1,7 @@
 'use client';
 import './styles/menu.css';
-import React, { Children  } from 'react';
+import React, { Children, useEffect  } from 'react';
+import Link from 'next/link';
 
 export default function Menu({primary, secondary}) {
     function setActive(e) {
@@ -37,6 +38,10 @@ export default function Menu({primary, secondary}) {
         });
     }
 
+    useEffect(() => {
+              return () => {
+              };
+          }, []);
 
   return (
     <>
@@ -47,6 +52,7 @@ export default function Menu({primary, secondary}) {
                 </svg>
             </div>
             <div className="navbar">
+                <Link href="/social">
                 <div className="social" id='social' onMouseOver={setActive} onMouseOut={setDefault}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="56" height="50" viewBox="0 0 56 50" fill={primary}>
                         <g clipPath="url(#clip0_56_1517)">
@@ -78,6 +84,8 @@ export default function Menu({primary, secondary}) {
                     </svg>
                     <h3 className='link' style={{ color: 'var(--primary)' }}>соц. сети</h3>
                 </div>
+                </Link>
+                <Link href="/about">
                 <div className="about" id='about' onMouseOver={setActive} onMouseOut={setDefault}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="49" viewBox="0 0 48 49" fill="none">
                             <g clipPath="url(#clip0_103_27)">
@@ -102,6 +110,8 @@ export default function Menu({primary, secondary}) {
                         </svg>
                     <h3 className='link' style={{ color: 'var(--primary)' }}>обо мне</h3>
                 </div>
+                </Link>
+                <Link href="/works">
                 <div className="works" id='works' onMouseOver={setActive} onMouseOut={setDefault}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="63" height="50" viewBox="0 0 63 50" fill="none">
                         <g clipPath="url(#clip0_103_46)">
@@ -123,6 +133,8 @@ export default function Menu({primary, secondary}) {
                     </svg>
                     <h3 className='link' style={{ color: 'var(--primary)' }}>работы</h3>
                 </div>
+                </Link>
+                <Link href="/ideas">
                 <div className="ideas" id='ideas' onMouseOver={setActive} onMouseOut={setDefault}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
                         <g clipPath="url(#clip0_103_59)">
@@ -146,6 +158,8 @@ export default function Menu({primary, secondary}) {
                     </svg>
                     <h3 className='link' style={{ color: 'var(--primary)' }}>идеи</h3>
                 </div>
+                </Link>
+                <Link href="/achievements">
                 <div className="achievements" id='achievements' onMouseOver={setActive} onMouseOut={setDefault}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="49" height="50" viewBox="0 0 49 50" fill="none">
                         <g clipPath="url(#clip0_103_74)">
@@ -161,7 +175,7 @@ export default function Menu({primary, secondary}) {
                     </svg>
                     <h3 className='link' style={{ color: 'var(--primary)' }}>достижения</h3>
                 </div>
-            
+                </Link>
             </div>
             <svg className='social-decor' id='social-decor' xmlns="http://www.w3.org/2000/svg" width="156" height="84" viewBox="0 0 156 84">
                 <path d="M1.3721 17.4358L27.7987 76.4358C29.7321 80.7523 34.0207 83.5305 38.7504 83.5305H143.872C151.999 83.5305 157.775 75.6224 155.303 67.8807L136.466 8.88071C134.878 3.90674 130.256 0.530518 125.035 0.530518H12.3237C3.62484 0.530518 -2.1838 9.49695 1.3721 17.4358Z" fill={primary}/>

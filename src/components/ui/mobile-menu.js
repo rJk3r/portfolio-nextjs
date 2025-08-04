@@ -1,6 +1,7 @@
 'use client';
 import './styles/menu.css';
-import React, { Children  } from 'react';
+import React, { Children, useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function MobileMenu({primary, secondary}) {
     function setActive(e) {
@@ -17,6 +18,7 @@ export default function MobileMenu({primary, secondary}) {
               path.style.fill = secondary;
             });
           }
+
           if (child.id === 'sub') {
             child.style.background = secondary;
           }
@@ -30,7 +32,11 @@ export default function MobileMenu({primary, secondary}) {
         // Перебираем и меняем цвет
         Array.from(children).forEach(child => {
             child.style.color = primary; // Для текста
-            
+            if (child && child.getElementById('social')) {
+            child.querySelectorAll('div').forEach(div => {
+              div.style.background = "red";
+            });
+          }
             // Если это SVG, меняем fill у всех path
             if (child.tagName === 'svg') {
             child.querySelectorAll('path').forEach(path => {
@@ -39,6 +45,152 @@ export default function MobileMenu({primary, secondary}) {
             }
         });
     }
+
+  useEffect(() => {
+    const socialElement = document.getElementById('social');
+
+    const setActive = () => {
+      if (socialElement) {
+        socialElement.style.background = 'var(--primary)'; // Цвет фона при наведении
+      }
+    };
+
+    const setDefault = () => {
+      if (socialElement) {
+        socialElement.style.background = 'var(--secondary)'; // Возврат к исходному цвету
+      }
+    };
+
+    if (socialElement) {
+      socialElement.addEventListener('mouseover', setActive);
+      socialElement.addEventListener('mouseout', setDefault);
+    }
+
+    // Убираем обработчики событий при размонтировании компонента
+    return () => {
+      if (socialElement) {
+        socialElement.removeEventListener('mouseover', setActive);
+        socialElement.removeEventListener('mouseout', setDefault);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const aboutElement = document.getElementById('about');
+
+    const setActive = () => {
+      if (aboutElement) {
+        aboutElement.style.background = 'var(--primary)'; // Цвет фона при наведении
+      }
+    };
+
+    const setDefault = () => {
+      if (aboutElement) {
+        aboutElement.style.background = 'var(--secondary)'; // Возврат к исходному цвету
+      }
+    };
+
+    if (aboutElement) {
+      aboutElement.addEventListener('mouseover', setActive);
+      aboutElement.addEventListener('mouseout', setDefault);
+    }
+
+    // Убираем обработчики событий при размонтировании компонента
+    return () => {
+      if (aboutElement) {
+        aboutElement.removeEventListener('mouseover', setActive);
+        aboutElement.removeEventListener('mouseout', setDefault);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const worksElement = document.getElementById('works');
+
+    const setActive = () => {
+      if (worksElement) {
+        worksElement.style.background = 'var(--primary)'; // Цвет фона при наведении
+      }
+    };
+
+    const setDefault = () => {
+      if (worksElement) {
+        worksElement.style.background = 'var(--secondary)'; // Возврат к исходному цвету
+      }
+    };
+
+    if (worksElement) {
+      worksElement.addEventListener('mouseover', setActive);
+      worksElement.addEventListener('mouseout', setDefault);
+    }
+
+    // Убираем обработчики событий при размонтировании компонента
+    return () => {
+      if (worksElement) {
+        worksElement.removeEventListener('mouseover', setActive);
+        worksElement.removeEventListener('mouseout', setDefault);
+      }
+    };
+  }, []);
+  useEffect(() => {
+    const ideasElement = document.getElementById('ideas');
+
+    const setActive = () => {
+      if (ideasElement) {
+        ideasElement.style.background = 'var(--primary)'; // Цвет фона при наведении
+      }
+    };
+
+    const setDefault = () => {
+      if (ideasElement) {
+        ideasElement.style.background = 'var(--secondary)'; // Возврат к исходному цвету
+      }
+    };
+
+    if (ideasElement) {
+      ideasElement.addEventListener('mouseover', setActive);
+      ideasElement.addEventListener('mouseout', setDefault);
+    }
+
+    // Убираем обработчики событий при размонтировании компонента
+    return () => {
+      if (ideasElement) {
+        ideasElement.removeEventListener('mouseover', setActive);
+        ideasElement.removeEventListener('mouseout', setDefault);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const achievementsElement = document.getElementById('achievements');
+
+    const setActive = () => {
+      if (achievementsElement) {
+        achievementsElement.style.background = 'var(--primary)'; // Цвет фона при наведении
+      }
+    };
+
+    const setDefault = () => {
+      if (achievementsElement) {
+        achievementsElement.style.background = 'var(--secondary)'; // Возврат к исходному цвету
+      }
+    };
+
+    if (achievementsElement) {
+      achievementsElement.addEventListener('mouseover', setActive);
+      achievementsElement.addEventListener('mouseout', setDefault);
+    }
+
+    // Убираем обработчики событий при размонтировании компонента
+    return () => {
+      if (achievementsElement) {
+        achievementsElement.removeEventListener('mouseover', setActive);
+        achievementsElement.removeEventListener('mouseout', setDefault);
+      }
+    };
+  }, []);
+
+    const [isHovered, setIsHovered] = useState(false);
 
   return (
     <>
@@ -68,8 +220,9 @@ export default function MobileMenu({primary, secondary}) {
             </svg>
           </div>
           <div className='links-menu'>
+          <Link href="/social">
           <div className='sub' id='sub'>
-              <div className="social" style={{background: 'var(--secondary)', borderRadius: '8px', width: '86px', height: '86px'}} id='social' onMouseOver={setActive} onMouseOut={setDefault}>
+              <div className="social" style={{background: 'var(--secondary)', borderRadius: '8px', width: '86px', height: '86px', transition: 'all 0.3s ease'}} id='social' onMouseOver={setActive} onMouseOut={setDefault}>
                   <svg width="76" height="68" viewBox="0 0 76 69" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
                     <g>
                     <path d="M6.3617 20.6712C6.52808 20.5396 6.71822 20.4378 6.92025 20.3481C10.64 11.9693 18.3647 3.06379 34.3963 2.09424C34.3963 2.09424 57.2792 2.7825 64.059 23.0831C64.4453 23.1011 64.784 23.2088 65.0811 23.3944C65.2178 23.4063 65.3544 23.4303 65.4079 23.4363C65.4435 23.4363 65.4851 23.4482 65.5208 23.4542C61.0583 10.2336 49.0138 0.753632 34.842 0.753632C21.609 0.753632 10.23 9.01872 5.15547 20.8807C5.52981 20.7012 5.93387 20.6174 6.3617 20.6772V20.6712Z" fill="var(--primary)"/>
@@ -101,8 +254,10 @@ export default function MobileMenu({primary, secondary}) {
               </div>
               <h3 className='link' style={{ color: 'var(--secondary)' }}>соц. сети</h3>
             </div>
+            </Link>
+            <Link href="/about">
             <div className='sub' id='sub'>
-              <div className="about" style={{background: 'var(--secondary)', borderRadius: '8px', width: '86px', height: '86px'}} id='about' onMouseOver={setActive} onMouseOut={setDefault}>
+              <div className="about" style={{background: 'var(--secondary)', borderRadius: '8px', width: '86px', height: '86px', transition: 'all 0.3s ease'}} id='about' onMouseOver={setActive} onMouseOut={setDefault}>
                   <svg width="66" height="68" viewBox="0 0 66 68" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.957063 40.6621C1.43752 40.6265 1.8788 40.9305 2.01874 41.394L2.61395 43.6928L9.10527 43.7097C9.70701 43.7097 10.194 44.2004 10.194 44.8046C10.194 45.4098 9.70608 45.8996 9.10527 45.8996L3.4088 45.8827C3.4088 45.8827 8.3468 60.8323 25.9764 65.9554C26.4746 66.0998 26.7871 66.5962 26.7115 67.1123C26.6192 67.74 25.996 68.1415 25.3914 67.9623C20.9535 66.6469 4.61135 61.8335 0.0269318 41.9326C-0.115806 41.3124 0.325469 40.7091 0.957063 40.6621Z" fill="var(--primary)"/>
                     <path d="M1.11954 27.6801C1.58227 27.7514 2.02635 27.468 2.15602 27.0158C3.38469 22.7504 10.4479 2.70683 34.7349 2.73967C35.1939 2.73967 35.5866 2.40752 35.6594 1.95152L35.6762 1.84549C35.7657 1.2844 35.3422 0.771162 34.7768 0.759903C29.6523 0.652001 7.47839 1.65596 0.36573 26.4922C0.209931 27.0355 0.564444 27.5938 1.11954 27.6801Z" fill="var(--primary)"/>
@@ -120,8 +275,10 @@ export default function MobileMenu({primary, secondary}) {
                   </div>
                 <h3 className='link' style={{ color: 'var(--secondary)' }}>обо мне</h3>
             </div>
+            </Link>
+            <Link href="/works">
             <div className='sub' id='sub'>
-              <div className="works" fill='var(--secondary)' style={{borderRadius: '8px', width: '86px', height: '86px'}} id='works' onMouseOver={setActive} onMouseOut={setDefault}>
+              <div className="works" style={{background: 'var(--secondary)', borderRadius: '8px', width: '86px', height: '86px', transition: 'all 0.3s ease'}} id='works' onMouseOver={setActive} onMouseOut={setDefault}>
                   <svg width="63" height="50" viewBox="0 0 63 50" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
                     <path d="M61.4671 41.7597V6.25653C61.4671 0.00156847 58.3225 0.255057 58.3225 0.255057H5.82777C-0.286491 0.255057 0.587076 6.51002 0.587076 6.51002V36.1803C0.587076 36.1803 0.5 36.0111 0.5 41.6748C0.5 47.3385 4.51812 47.2536 4.51812 47.2536H56.1393C62.2536 47.2536 61.4671 41.7597 61.4671 41.7597ZM6.43379 0.932609H57.4272C57.4272 0.932609 60.3878 0.696791 60.3878 6.51341C60.3878 6.89738 60.3878 7.39077 60.3885 7.97521H1.49926V6.74923C1.49926 6.74923 0.67696 0.932609 6.43379 0.932609ZM56.7067 46.3667H5.61149C5.61149 46.3667 1.4171 46.9586 1.4171 41.1787L1.49926 36.0695V8.87771H60.392C60.4067 18.8038 60.4629 42.9015 60.4629 42.9015C60.4629 42.9015 60.3758 46.3667 56.7067 46.3667Z" fill="var(--primary)"/>
                     <path d="M55.3529 13.498H6.78848C6.12909 13.498 5.59469 14.0151 5.59469 14.6533V41.0268C5.59469 41.665 6.12909 42.1822 6.78848 42.1822H55.3529C56.0123 42.1822 56.5466 41.665 56.5466 41.0268V14.6533C56.5466 14.0151 56.0123 13.498 55.3529 13.498ZM55.3817 41.1111H6.58483V14.5119H55.3824L55.3817 41.1111Z" fill="var(--primary)"/>
@@ -136,8 +293,10 @@ export default function MobileMenu({primary, secondary}) {
                   </div>
                 <h3 className='link' style={{ color: 'var(--secondary)' }}>работы</h3>
             </div>
+            </Link>
+            <Link href="/ideas">
             <div className='sub' id='sub'>
-              <div className="ideas" style={{background: 'var(--secondary)', borderRadius: '8px', width: '86px', height: '86px'}} id='ideas' onMouseOver={setActive} onMouseOut={setDefault}>
+              <div className="ideas"style={{background: 'var(--secondary)', borderRadius: '8px', width: '86px', height: '86px', transition: 'all 0.3s ease'}} id='ideas' onMouseOver={setActive} onMouseOut={setDefault}>
                   <svg width="48" height="68" viewBox="0 0 48 68" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
                     <path d="M33.4449 52.0176H14.4596C13.8451 52.0176 13.3469 52.5436 13.3469 53.1925C13.3469 53.8415 13.8451 54.3675 14.4596 54.3675H33.4449C34.0594 54.3675 34.5575 53.8415 34.5575 53.1925C34.5575 52.5436 34.0594 52.0176 33.4449 52.0176Z" fill="var(--primary)"/>
                     <path d="M33.4361 55.0946H14.4508C13.8363 55.0946 13.3382 55.6207 13.3382 56.2696C13.3382 56.9185 13.8363 57.4446 14.4508 57.4446H33.4361C34.0506 57.4446 34.5488 56.9185 34.5488 56.2696C34.5488 55.6207 34.0506 55.0946 33.4361 55.0946Z" fill="var(--primary)"/>
@@ -154,8 +313,10 @@ export default function MobileMenu({primary, secondary}) {
                   </div>
                 <h3 className='link' style={{ color: 'var(--secondary)' }}>идеи</h3>
             </div>
+            </Link>
+            <Link href="/achievements">
             <div className='sub' id='sub'>
-              <div className="achievements" onMouseOver={setActive} onMouseOut={setDefault} style={{background: 'var(--secondary)', borderRadius: '8px', width: '86px', height: '86px'}}>
+              <div className="achievements" id="achievements" onMouseOver={setActive} onMouseOut={setDefault} style={{background: 'var(--secondary)', borderRadius: '8px', width: '86px', height: '86px', transition: 'all 0.3s ease'}}>
                   <svg width="46" height="68" viewBox="0 0 46 68" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
                     <path d="M43.4988 62.9647L33.6549 41.6279L30.9039 40.4754L30.579 40.6648L40.5413 62.1126L36.8913 60.6688C36.8913 60.6688 35.9134 60.2664 35.1501 60.5504C34.3869 60.8344 34.0053 61.9232 34.0053 61.9232L32.765 65.0484L23.3974 44.2593L23.0635 44.3548L13.4442 64.8117L11.8223 61.6865C11.8223 61.6865 11.393 59.8403 9.15101 60.6924C6.90902 61.5445 5.66795 62.0179 5.66795 62.0179L15.1507 41.0802L14.1128 40.5709L12.4433 41.3757L2.80585 62.6807C2.80585 62.6807 1.4702 65.4263 4.71392 64.6689C7.95846 63.9115 9.77113 63.012 9.77113 63.012L12.2993 67.7941C12.2993 67.7941 12.2993 68.5988 13.3011 68.7409C14.3028 68.8829 14.6844 67.7941 14.6844 67.7941L23.1285 49.6608L31.3817 67.7941C31.3817 67.7941 31.7156 69.0249 32.9082 68.6462C34.1007 68.2675 35.3886 64.8109 35.3886 64.8109L36.2473 62.9174C36.2473 62.9174 41.066 65.379 42.7355 65.0949C44.4051 64.8109 43.4988 62.9647 43.4988 62.9647Z" fill="var(--primary)"/>
                     <path d="M45.9948 24.1097C45.9628 20.4801 44.6592 19.5015 42.6549 17.5761C40.6514 15.6507 41.2551 12.4945 41.2551 12.4945C41.2551 12.4945 41.6046 10.0329 39.5057 7.53942C37.4069 5.04597 32.7946 5.33 32.7946 5.33C32.7946 5.33 30.7911 5.86623 28.5327 3.72047C26.2743 1.5739 25.4477 0.753632 22.9351 0.753632C20.4226 0.753632 18.1962 2.48966 16.9872 4.13102C15.7782 5.77237 11.9621 5.39366 11.9621 5.39366C11.9621 5.39366 8.71752 5.26715 6.61864 7.41373C4.51977 9.5603 4.7739 11.391 5.09219 13.9791C5.41047 16.5673 1.27522 19.85 1.27522 19.85C-1.33275 22.3753 0.511991 27.11 2.77042 28.7823C5.02886 30.4555 4.86931 35.3788 4.86931 35.3788C5.50506 38.1881 5.56921 38.0616 7.12774 39.8923C8.68627 41.723 13.8068 41.723 14.8883 41.6283C15.9698 41.5337 18.9915 44.7217 18.9915 44.7217C18.9915 44.7217 20.8363 46.7099 24.1441 46.0472C27.452 45.3844 27.452 44.1846 29.3601 42.638C31.2681 41.0913 32.4139 41.3749 33.6549 41.6279C34.8952 41.8801 41.51 41.0603 41.033 35.915C40.556 30.7698 42.5916 29.5079 42.5916 29.5079C46.281 26.2881 45.9948 24.1097 45.9948 24.1097ZM40.4211 28.7717C40.4211 28.7717 38.6117 29.8981 39.0361 34.4875C39.4605 39.0769 33.58 39.8091 32.4771 39.5838C31.3742 39.3585 30.3569 39.1055 28.661 40.4849C26.9651 41.8642 26.9651 42.9342 24.0249 43.526C21.0846 44.1169 19.4455 42.3433 19.4455 42.3433C19.4455 42.3433 16.7602 39.4997 15.7988 39.5838C14.8373 39.6679 10.2859 39.6678 8.90093 38.0355C7.51593 36.4023 7.45918 36.5149 6.89334 34.0092C6.89334 34.0092 7.0348 29.6165 5.02721 28.1245C3.02045 26.6325 1.38049 22.4087 3.69814 20.1561C3.69814 20.1561 7.37365 17.2276 7.09073 14.9186C6.80781 12.6096 6.58163 10.9764 8.44776 9.06161C10.3139 7.14683 13.1974 7.25947 13.1974 7.25947C13.1974 7.25947 16.59 7.59737 17.6641 6.13313C18.7382 4.66889 20.717 3.12058 22.9508 3.12058C25.1845 3.12058 25.919 3.8527 27.9265 5.76748C29.9333 7.68225 31.7147 7.20315 31.7147 7.20315C31.7147 7.20315 35.8138 6.95013 37.6799 9.17424C39.546 11.3984 39.2352 13.5947 39.2352 13.5947C39.2352 13.5947 38.6981 16.4106 40.4787 18.1278C42.2601 19.8451 43.4189 20.7184 43.4469 23.9562C43.4469 23.9562 43.7002 25.8996 40.4211 28.7717Z" fill="var(--primary)"/>
@@ -164,6 +325,7 @@ export default function MobileMenu({primary, secondary}) {
                   </div>
                 <h3 className='link' style={{ color: 'var(--secondary)' }}>достижения</h3>
             </div>
+            </Link>
         </div>
         </div>
     </>
