@@ -1,9 +1,9 @@
 "use client"
 
 import MainPageThemeLoader from './mainPageThemeLoader';
-import Label  from '@/components/ui/label';
-import Menu  from '@/components/ui/menu';
-import MobileMenu from '@/components/ui/mobile-menu';
+import Label  from '../components/ui/label';
+import Menu  from '../components/ui/menu';
+import MobileMenu from '../components/ui/mobile-menu';
 import Link from 'next/link';
 
 import { useState, useCallback, useEffect } from 'react';

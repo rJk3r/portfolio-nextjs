@@ -1,7 +1,6 @@
 "use client"
 import './about.css';
 import React, { Children, useState, useEffect, useCallback } from 'react';
-import "./about.css";
 import Link from "next/link";
 import Image from 'next/image';
 import mob7 from "./mob-7.png";
