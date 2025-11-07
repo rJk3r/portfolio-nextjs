@@ -1,9 +1,9 @@
 {
   "name": "portfolio-nextjs",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "cross-env CSS_TRANSFORMER=js CSS_TRANSFORMER_WASM=0 next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -11,6 +11,7 @@
   "dependencies": {
     "next": "^15.5.6",
     "react": "^19.0.0",
+    "react-day-picker": "^9.11.1",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-markdown": "^10.1.0",

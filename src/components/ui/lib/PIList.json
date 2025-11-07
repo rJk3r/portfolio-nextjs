@@ -1,0 +1,58 @@
+{
+  "placeholderImages": [
+    {
+      "id": "about-me",
+      "description": "A portrait of rJk3r",
+      "imageUrl": "https://images.unsplash.com/photo-1729025004944-5aa651b2a62d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwb3J0cmFpdCUyMHBlcnNvbnxlbnwwfHx8fDE3NjIzMjA1NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "portrait person"
+    },
+    {
+      "id": "project-3d-1",
+      "description": "A 3D render of a futuristic scene",
+      "imageUrl": "https://images.unsplash.com/photo-1651611243377-2c15b94ad613?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE3NjIzNjM5NzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "3d render"
+    },
+    {
+      "id": "project-3d-2",
+      "description": "A 3D character model",
+      "imageUrl": "https://images.unsplash.com/photo-1740252117027-4275d3f84385?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHwzZCUyMGNoYXJhY3RlcnxlbnwwfHx8fDE3NjI0MjQxMDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "3d character"
+    },
+    {
+      "id": "project-code-1",
+      "description": "A screenshot of code in an editor",
+      "imageUrl": "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb2RlJTIwZWRpdG9yfGVufDB8fHx8MTc2MjQwMzU1NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "code editor"
+    },
+    {
+      "id": "project-code-2",
+      "description": "An architecture diagram for a software project",
+      "imageUrl": "https://images.unsplash.com/photo-1604952703578-8ae924053711?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YXJjaGl0ZWN0dXJlJTIwZGlhZ3JhbXxlbnwwfHx8fDE3NjI0MjQxMDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "architecture diagram"
+    },
+    {
+      "id": "project-design-1",
+      "description": "A UI design mockup from Figma",
+      "imageUrl": "https://images.unsplash.com/photo-1545235617-9465d2a55698?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx1aSUyMGRlc2lnbnxlbnwwfHx8fDE3NjIzNjEzNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ui design"
+    },
+    {
+      "id": "project-art-1",
+      "description": "A digital painting",
+      "imageUrl": "https://images.unsplash.com/photo-1598818375296-8537cb7d2549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZGlnaXRhbCUyMHBhaW50aW5nfGVufDB8fHx8MTc2MjQwNTI2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "digital painting"
+    },
+    {
+      "id": "project-music-1",
+      "description": "An abstract visual representing a music track",
+      "imageUrl": "https://images.unsplash.com/photo-1722024300860-39ffb22f2d56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG11c2ljfGVufDB8fHx8MTc2MjMyNDQyNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract music"
+    },
+    {
+      "id": "project-other-1",
+      "description": "A photo of a hardware project",
+      "imageUrl": "https://images.unsplash.com/photo-1570155308259-f4480a5c3696?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxoYXJkd2FyZSUyMHByb2plY3R8ZW58MHx8fHwxNzYyNDI0MTA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hardware project"
+    }
+  ]
+}
