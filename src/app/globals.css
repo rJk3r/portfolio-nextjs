@@ -1,4 +1,83 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+[data-theme="main1"] {
+  --primary-color: #3498db;
+  --secondary-color: #2980b9;
+}
+
+[data-theme="main2"] {
+  --primary-color: #9b59b6;
+  --secondary-color: #8e44ad;
+}
+
+[data-theme="main3"] {
+  --primary-color: #9b59b6;
+  --secondary-color: #8e44ad;
+}
+
+[data-theme="main4"] {
+  --primary-color: #9b59b6;
+  --secondary-color: #8e44ad;
+}
+
+[data-theme="main5"] {
+  --primary-color: #9b59b6;
+  --secondary-color: #8e44ad;
+}
+
+[data-theme="main6"] {
+  --primary-color: #9b59b6;
+  --secondary-color: #8e44ad;
+
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 a {
-  color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+.fadeComponent {
+  background-color: #0070f3;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease; /* Плавный переход */
 }

@@ -1,6 +1,6 @@
 "use client"
-import { useState } from 'react';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { useState, useEffect } from 'react';
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '../ideas/utils/firebase';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import "../ideas/UI.css";
@@ -9,6 +9,39 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
+  
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Пользователь уже вошёл — проверим, подтверждён ли он
+        const userDocRef = doc(db, 'users', user.uid);
+        getDoc(userDocRef)
+          .then(userSnap => {
+            if (userSnap.exists() && userSnap.data().isAdminApproved) {
+              if (user.emailVerified) {
+                window.location.href = '/dashboard';
+              } else {
+                alert('Пожалуйста, подтвердите ваш email.');
+                setLoading(false);
+              }
+            } else {
+              alert('Ваш аккаунт ещё не подтверждён администратором.');
+              setLoading(false);
+            }
+          })
+          .catch(err => {
+            console.error("Ошибка проверки статуса пользователя:", err);
+            setLoading(false);
+          });
+      } else {
+        setLoading(false);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,34 +68,17 @@ export default function Login() {
     }
   };
 
-  const handleRequestAccess = async () => {
-    if (!email || !password) {
-      setError('Заполните все поля');
-      return;
-    }
-
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-
-      await sendEmailVerification(user);
-
-      const userDocRef = doc(db, 'users', user.uid);
-      await setDoc(userDocRef, {
-        email: user.email,
-        createdAt: new Date(),
-        isAdminApproved: false,
-      });
-
-      alert('Регистрация завершена. Проверьте ваш email и дождитесь подтверждения администратора.');
-    } catch (err) {
-      if (err.code === 'auth/email-already-in-use') {
-        alert('Пользователь с таким email уже существует.');
-      } else {
-        setError(err.message);
-      }
-    }
+  const handleRequestAccess = () => {
+    alert("Свяжись с админом!");
   };
+
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <p>Авторизация</p>
+      </div>
+    );
+  }
 
   return (
     <div className="auth-container">

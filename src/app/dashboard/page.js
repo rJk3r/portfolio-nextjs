@@ -10,6 +10,8 @@ export default function Dashboard() {
   const [notes, setNotes] = useState([]);
   const [currentNote, setCurrentNote] = useState({ id: null, title: '', content: '' });
   const [userId, setUserId] = useState('');
+  const [loading, setLoading] = useState(true); // Добавлено
+  const [hasAccess, setHasAccess] = useState(false); // Добавлено
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -22,13 +24,17 @@ export default function Dashboard() {
 
             if (userSnap.exists() && userSnap.data().isAdminApproved) {
               setUserId(user.uid);
+              setHasAccess(true); // Пользователь подтверждён
             } else {
               alert('Ваш аккаунт ещё не подтверждён администратором.');
-              window.location.href = '/login';
+              window.location.href = '/login'; // Редирект на логин
+              return; // Прерываем выполнение
             }
           } else {
-            window.location.href = '/login';
+            window.location.href = '/login'; // Редирект, если не вошёл
+            return; // Прерываем выполнение
           }
+          setLoading(false); // Проверка завершена
         });
         return () => unsubscribe();
       });
@@ -36,7 +42,7 @@ export default function Dashboard() {
   }, []);
 
   useEffect(() => {
-    if (!userId) return;
+    if (!hasAccess || !userId) return; // Не грузим заметки, если нет доступа
 
     const fetchNotes = async () => {
       const q = query(collection(db, 'notes'), where('userId', '==', userId));
@@ -50,7 +56,7 @@ export default function Dashboard() {
     };
 
     fetchNotes();
-  }, [userId]);
+  }, [hasAccess, userId]);
 
   // Остальная логика: saveNote, loadNote, deleteNote, handleLogout
   const saveNote = async () => {
@@ -96,6 +102,23 @@ export default function Dashboard() {
       window.location.href = '/'; // Редирект через URL
     });
   };
+
+  // Пока идёт проверка или нет доступа — показываем статус
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <p>Проверка доступа...</p>
+      </div>
+    );
+  }
+
+  if (!hasAccess) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <p>Доступ запрещён. Проверьте статус.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="dashboard">

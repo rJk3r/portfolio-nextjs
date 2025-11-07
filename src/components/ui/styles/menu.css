@@ -90,7 +90,7 @@
     z-index: 2;
     position: relative;
     top: 4.6px;
-    left: 111.8;
+    left: 111.8px;
     opacity: 0;
     transition: 0.4s;
 }
@@ -103,7 +103,7 @@
     z-index: 2;
     position: absolute;
     top: 4.2px;
-    left: 292.8;
+    left: 292.8px;
     opacity: 0;
     transition: 0.4s;
 }
@@ -117,7 +117,7 @@
     position: absolute;
     border-radius: 16px;
     top: 4.4px;
-    left: 455.8;
+    left: 455.8px;
     opacity: 0;
     transition: 0.4s;
 }
@@ -143,7 +143,7 @@
     z-index: 2;
     position: absolute;
     top: 4.4px;
-    left: 769.8;
+    left: 769.8px;
     opacity: 0;
     transition: 0.4s;
 }

@@ -1,9 +1,9 @@
 {
   "name": "portfolio-nextjs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -12,7 +12,6 @@
     "clsx": "^2.1.1",
     "crypto-js": "^4.2.0",
     "firebase": "^12.5.0",
-    "install": "^0.13.0",
     "next": "^15.5.6",
     "npm": "^11.6.2",
     "react": "^19.0.0",
