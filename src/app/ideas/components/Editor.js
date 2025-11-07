@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import "./UI.css";
+import "../UI.css";
 
 export default function Editor({ content, onChange }) {
   return (
