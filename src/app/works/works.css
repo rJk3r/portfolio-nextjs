@@ -1,0 +1,125 @@
+
+.container {
+  background-color: #1A1A1D;
+  color: white;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  background-color: #252528;
+  border-radius: 25px;
+  padding: 0.5rem;
+}
+
+.filterButton {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+.filterButton:hover {
+  background-color: #4A4E6D;
+}
+
+.active {
+  background-color: #363B5B;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  background-color: #252528;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #C3073F;
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cardContent {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardTitleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+  color: #a9a9a9;
+  line-height: 1.5;
+}
+
+.cardTags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.cardTag {
+  background-color: #4A4E6D;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.type-cpp { background-color: #f34b7d; }
+.type-web { background-color: #3D85C6; }
+.type-3d { background-color: #F6B26B; }
+.type-art { background-color: #9B59B6; }
+.type-animation { background-color: #6AA84F; }
+.type-ui { background-color: #45818E; }
+.type-code { background-color: #E67C73; }
+.type-other { background-color: #76A5AF; }
+.type-music { background-color: #FF851B; }
+
