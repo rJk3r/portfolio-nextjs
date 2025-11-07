@@ -45,4 +45,5 @@ firebase-debug.log
 firestore-debug.log
 
 #firebase-config
-/src/app/ideas/utils/firebase.js
+
+src/app/ideas/utils/firebase.js
