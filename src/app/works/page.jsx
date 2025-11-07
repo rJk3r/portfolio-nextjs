@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import styles from './works.module.css';
-import Navbar from '../../components/ui/LocalNav';
+import LocalNav from '../../components/ui/LocalNav';
 import { FiExternalLink } from 'react-icons/fi';
 
 const projects = [
@@ -31,7 +31,7 @@ const Works = () => {
 
   return (
     <>
-      <Navbar />
+      <LocalNav />
       <div className={styles.container}>
         <div className={styles.filterContainer}>
           {projectTypes.map(type => (
